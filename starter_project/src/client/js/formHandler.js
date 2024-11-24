@@ -15,9 +15,17 @@ function handleSubmit(event) {
     const formText = document.getElementById('name').value;
 
     // This is an example code that checks the submitted name. You may remove it from your code
-    checkForName(formText);
+    client.checkForName(formText);
     
     // Check if the URL is valid
+    console.log("::: Form Submit :::")
+        fetch('http://localhost:8081/test')
+    .then(res => {
+        return res.json()
+    })
+    .then(function(data) {
+        document.getElementById('results').innerHTML = data.message
+    })
  
         // If the URL is valid, send it to the server using the serverURL constant above
       
